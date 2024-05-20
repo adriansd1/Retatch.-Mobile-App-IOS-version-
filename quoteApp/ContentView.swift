@@ -22,7 +22,7 @@ struct ContentView: View {
     private var libraryReadings: FetchedResults<ReadingEntity>
 
     private let readings: [Reading] = [
-        Reading(id: UUID(), title: "Excerpt from 'The Great Gatsby'", content: "In my younger and more vulnerable years, my father gave me some advice that I've been turning over in my mind ever since. \"Whenever you feel like criticizing anyone,\" he told me, \"just remember that all the people in this world haven't had the advantages that you've had.\""),
+        Reading(id: UUID(), title: "You can't wait for everything to be perfect to start living your life.", content: "In my younger and more vulnerable years, my father gave me some advice that I've been turning over in my mind ever since. \"Whenever you feel like criticizing anyone,\" he told me, \"just remember that all the people in this world haven't had the advantages that you've had.\""),
         Reading(id: UUID(), title: "Excerpt from 'Romeo and Juliet'", content: "But soft! What light through yonder window breaks? It is the east, and Juliet is the sun. Arise, fair sun, and kill the envious moon, who is already sick and pale with grief."),
         Reading(id: UUID(), title: "Excerpt from 'To Kill a Mockingbird'", content: "Atticus, he was real nice. \"Most people are, Scout, when you finally see them.\""),
         // Add more readings as needed
@@ -109,46 +109,80 @@ struct ContentView: View {
     var bottomNavBar: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
-                VStack {
-                    //Rectangle()
-                      //  .fill(Color.white)
-                        //.frame(height: 200) // Set the height of the rectangle
-                        //.padding()
-
-                    ScrollView {
-                        LazyVGrid(columns: [
-                            GridItem(.adaptive(minimum: 100, maximum: 200)),
-                            GridItem(.adaptive(minimum: 100, maximum: 200)),
-                            GridItem(.adaptive(minimum: 100, maximum: 200))
-                        ], spacing: 10) {
-                            ForEach(readings) { reading in
-                                NavigationLink(destination: ReadingDetailView(reading: reading, isFromLibrary: false, addToLibrary: { addReadingToLibrary(reading) }, removeFromLibrary: nil)) {
-                                    VStack(alignment: .leading) {
-                                        Text(reading.title)
-                                            .font(.headline)
-                                        Text(reading.content)
-                                            .font(.subheadline)
-                                            .lineLimit(2)
-                                    }
-                                    .frame(minHeight: 100, maxHeight: 200) // Set the minimum and maximum height of each square
-                                    .padding()
-                                    .background(Color.blue)
+                ScrollView {
+                    VStack {
+                        // Spacer to push content below navigation title
+                        VStack {
+                            Spacer()
+                                .padding(.bottom, 20) // Add padding below the Spacer
+                        }
+                        
+                        // Read of the Week section
+                        VStack(alignment: .leading) {
+                            Text("Read of the Week")
+                                .font(.headline)
+                                .padding()
+                            NavigationLink(destination: ReadingDetailView(reading: readings.first!, isFromLibrary: false, addToLibrary: { addReadingToLibrary(readings.first!) }, removeFromLibrary: nil)) {
+                                Rectangle()
+                                    .fill(Color.blue)
                                     .cornerRadius(10)
+                                    .frame(height: UIScreen.main.bounds.height / 2) // Half the screen height
+                                    .padding(15)
+                                    .overlay(
+                                        Text(readings.first?.title ?? "No Reading")
+                                            .font(.title)
+                                            .padding(50)
+                                    )
+                            }
+                            .buttonStyle(PlainButtonStyle()) // Use a plain button style for the navigation link
+
+                        }
+                        .frame(height: UIScreen.main.bounds.height / 2) // Half the screen height
+                        
+                        
+                        // Editor's Choices section
+                        VStack(alignment: .leading) {
+                            Text("Editor's Choices")
+                                .font(.headline)
+                                .padding(.leading)
+                                .padding(.top, 40)
+                                .padding(.bottom, 0)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(readings.prefix(5)) { reading in
+                                        NavigationLink(destination: ReadingDetailView(reading: reading, isFromLibrary: false, addToLibrary: { addReadingToLibrary(reading) }, removeFromLibrary: nil)) {
+                                            VStack(alignment: .leading) {
+                                                Text(reading.title)
+                                                    .font(.headline)
+                                                Text(reading.content)
+                                                    .font(.subheadline)
+                                                    .lineLimit(2)
+                                            }
+                                            .frame(width: 150, height: 200) // Fixed size for horizontal scrolling
+                                            .padding()
+                                            .background(Color.blue)
+                                            .cornerRadius(10)
+                                        }
+                                        .buttonStyle(PlainButtonStyle()) // Use a plain button style for the navigation link
+                                    }
                                 }
-                                .buttonStyle(PlainButtonStyle()) // Use a plain button style for the navigation link
+                                .padding()
                             }
                         }
                         .padding()
                     }
+                    .navigationTitle("Home")
                 }
-                .navigationTitle("Home")
+                .padding(.bottom) // Add bottom padding
             }
-
             .tabItem {
                 Image(systemName: "house")
                 Text("Home")
             }
             .tag(0)
+
+
+
 
             NavigationView {
                 List(readings) { reading in
@@ -230,7 +264,6 @@ struct ContentView: View {
         }
     }
 
-
     private func addReadingToLibrary(_ reading: Reading) {
         if libraryReadings.contains(where: { $0.content == reading.content }) {
             toastMessage = "Reading is already in the library!"
@@ -251,7 +284,6 @@ struct ContentView: View {
             print("Failed to save reading: \(error.localizedDescription)")
         }
     }
-
 
     private func removeReadingFromLibrary(_ readingEntity: ReadingEntity) {
         viewContext.delete(readingEntity)
@@ -277,21 +309,14 @@ struct ReadingDetailView: View {
             Text(reading.title)
                 .font(.title)
                 .padding()
-            Text(reading.content)
-                .font(.body)
-                .padding()
 
-            if isFromLibrary {
-                Button(action: {
-                    removeFromLibrary?()
-                }) {
-                    Text("Remove from Library")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.red)
-                        .cornerRadius(10)
-                }
-            } else {
+            ScrollView {
+                Text(reading.content)
+                    .font(.body)
+                    .padding()
+            }
+
+            if !isFromLibrary {
                 Button(action: {
                     addToLibrary?()
                 }) {
@@ -301,10 +326,27 @@ struct ReadingDetailView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
+                .padding()
+            } else {
+                Button(action: {
+                    removeFromLibrary?()
+                }) {
+                    Text("Remove from Library")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+                .padding()
             }
         }
-        .padding() // Move padding to the entire VStack
-        .navigationTitle(reading.title)
+        .padding()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView().environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }
 
@@ -324,3 +366,4 @@ class PersistenceController {
         }
     }
 }
+

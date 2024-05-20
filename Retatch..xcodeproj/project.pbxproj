@@ -39,14 +39,14 @@
 /* Begin PBXFileReference section */
 		57483BC22BF6431C00CEF796 /* reading1_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reading1_background.png; path = ../../../Downloads/reading1_background.png; sourceTree = "<group>"; };
 		575D23642BF6F16600A2CAC5 /* LibraryModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LibraryModel.xcdatamodel; sourceTree = "<group>"; };
-		57D834D32BF5B81800A280FA /* quoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D834D32BF5B81800A280FA /* Retatch..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Retatch..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D834D62BF5B81800A280FA /* quoteAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteAppApp.swift; sourceTree = "<group>"; };
 		57D834D82BF5B81800A280FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		57D834DA2BF5B81B00A280FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57D834DD2BF5B81B00A280FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		57D834E32BF5B81C00A280FA /* quoteAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quoteAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D834E32BF5B81C00A280FA /* Retatch.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Retatch.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D834E72BF5B81C00A280FA /* quoteAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteAppTests.swift; sourceTree = "<group>"; };
-		57D834ED2BF5B81C00A280FA /* quoteAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quoteAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D834ED2BF5B81C00A280FA /* Retatch.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Retatch.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D834F12BF5B81C00A280FA /* quoteAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteAppUITests.swift; sourceTree = "<group>"; };
 		57D834F32BF5B81C00A280FA /* quoteAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quoteAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,9 +90,9 @@
 		57D834D42BF5B81800A280FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57D834D32BF5B81800A280FA /* quoteApp.app */,
-				57D834E32BF5B81C00A280FA /* quoteAppTests.xctest */,
-				57D834ED2BF5B81C00A280FA /* quoteAppUITests.xctest */,
+				57D834D32BF5B81800A280FA /* Retatch..app */,
+				57D834E32BF5B81C00A280FA /* Retatch.Tests.xctest */,
+				57D834ED2BF5B81C00A280FA /* Retatch.UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		57D834D22BF5B81800A280FA /* quoteApp */ = {
+		57D834D22BF5B81800A280FA /* Retatch. */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57D834F72BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteApp" */;
+			buildConfigurationList = 57D834F72BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch." */;
 			buildPhases = (
 				57D834CF2BF5B81800A280FA /* Sources */,
 				57D834D02BF5B81800A280FA /* Frameworks */,
@@ -150,17 +150,17 @@
 			);
 			dependencies = (
 			);
-			name = quoteApp;
+			name = Retatch.;
 			packageProductDependencies = (
 				575D23612BF6E4E200A2CAC5 /* AlertToast */,
 			);
 			productName = quoteApp;
-			productReference = 57D834D32BF5B81800A280FA /* quoteApp.app */;
+			productReference = 57D834D32BF5B81800A280FA /* Retatch..app */;
 			productType = "com.apple.product-type.application";
 		};
-		57D834E22BF5B81C00A280FA /* quoteAppTests */ = {
+		57D834E22BF5B81C00A280FA /* Retatch.Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57D834FA2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteAppTests" */;
+			buildConfigurationList = 57D834FA2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch.Tests" */;
 			buildPhases = (
 				57D834DF2BF5B81C00A280FA /* Sources */,
 				57D834E02BF5B81C00A280FA /* Frameworks */,
@@ -171,14 +171,14 @@
 			dependencies = (
 				57D834E52BF5B81C00A280FA /* PBXTargetDependency */,
 			);
-			name = quoteAppTests;
+			name = Retatch.Tests;
 			productName = quoteAppTests;
-			productReference = 57D834E32BF5B81C00A280FA /* quoteAppTests.xctest */;
+			productReference = 57D834E32BF5B81C00A280FA /* Retatch.Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		57D834EC2BF5B81C00A280FA /* quoteAppUITests */ = {
+		57D834EC2BF5B81C00A280FA /* Retatch.UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57D834FD2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteAppUITests" */;
+			buildConfigurationList = 57D834FD2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch.UITests" */;
 			buildPhases = (
 				57D834E92BF5B81C00A280FA /* Sources */,
 				57D834EA2BF5B81C00A280FA /* Frameworks */,
@@ -189,9 +189,9 @@
 			dependencies = (
 				57D834EF2BF5B81C00A280FA /* PBXTargetDependency */,
 			);
-			name = quoteAppUITests;
+			name = Retatch.UITests;
 			productName = quoteAppUITests;
-			productReference = 57D834ED2BF5B81C00A280FA /* quoteAppUITests.xctest */;
+			productReference = 57D834ED2BF5B81C00A280FA /* Retatch.UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 57D834CE2BF5B81800A280FA /* Build configuration list for PBXProject "quoteApp" */;
+			buildConfigurationList = 57D834CE2BF5B81800A280FA /* Build configuration list for PBXProject "Retatch." */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -233,9 +233,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57D834D22BF5B81800A280FA /* quoteApp */,
-				57D834E22BF5B81C00A280FA /* quoteAppTests */,
-				57D834EC2BF5B81C00A280FA /* quoteAppUITests */,
+				57D834D22BF5B81800A280FA /* Retatch. */,
+				57D834E22BF5B81C00A280FA /* Retatch.Tests */,
+				57D834EC2BF5B81C00A280FA /* Retatch.UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,12 +300,12 @@
 /* Begin PBXTargetDependency section */
 		57D834E52BF5B81C00A280FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 57D834D22BF5B81800A280FA /* quoteApp */;
+			target = 57D834D22BF5B81800A280FA /* Retatch. */;
 			targetProxy = 57D834E42BF5B81C00A280FA /* PBXContainerItemProxy */;
 		};
 		57D834EF2BF5B81C00A280FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 57D834D22BF5B81800A280FA /* quoteApp */;
+			target = 57D834D22BF5B81800A280FA /* Retatch. */;
 			targetProxy = 57D834EE2BF5B81C00A280FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -503,7 +503,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quoteApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quoteApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retatch..app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Retatch.";
 			};
 			name = Debug;
 		};
@@ -522,7 +522,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quoteApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quoteApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retatch..app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Retatch.";
 			};
 			name = Release;
 		};
@@ -563,7 +563,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57D834CE2BF5B81800A280FA /* Build configuration list for PBXProject "quoteApp" */ = {
+		57D834CE2BF5B81800A280FA /* Build configuration list for PBXProject "Retatch." */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57D834F52BF5B81C00A280FA /* Debug */,
@@ -572,7 +572,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57D834F72BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteApp" */ = {
+		57D834F72BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch." */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57D834F82BF5B81C00A280FA /* Debug */,
@@ -581,7 +581,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57D834FA2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteAppTests" */ = {
+		57D834FA2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch.Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57D834FB2BF5B81C00A280FA /* Debug */,
@@ -590,7 +590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57D834FD2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "quoteAppUITests" */ = {
+		57D834FD2BF5B81C00A280FA /* Build configuration list for PBXNativeTarget "Retatch.UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57D834FE2BF5B81C00A280FA /* Debug */,
