@@ -123,18 +123,25 @@ struct ContentView: View {
                                 .font(.headline)
                                 .padding()
                             NavigationLink(destination: ReadingDetailView(reading: readings.first!, isFromLibrary: false, addToLibrary: { addReadingToLibrary(readings.first!) }, removeFromLibrary: nil)) {
-                                Rectangle()
-                                    .fill(Color.blue)
-                                    .cornerRadius(10)
+                                Image("ReadOfTheWeek")
+                                    .resizable()
+                                    .scaledToFill()
                                     .frame(height: UIScreen.main.bounds.height / 2) // Half the screen height
-                                    .padding(15)
+                                    .cornerRadius(10)
                                     .overlay(
                                         Text(readings.first?.title ?? "No Reading")
                                             .font(.title)
                                             .padding(50)
+                                            .background(Color.black.opacity(0.5)) // Add a semi-transparent background to make the text readable
+                                            .cornerRadius(10)
+                                            .foregroundColor(.white)
                                     )
+                                    .padding(15)
+                                    .clipped() // Clip the image to the frame
                             }
                             .buttonStyle(PlainButtonStyle()) // Use a plain button style for the navigation link
+                        
+
 
                         }
                         .frame(height: UIScreen.main.bounds.height / 2) // Half the screen height
@@ -154,20 +161,34 @@ struct ContentView: View {
                                             VStack(alignment: .leading) {
                                                 Text(reading.title)
                                                     .font(.headline)
+                                                    .padding([.top, .leading, .trailing], 8) // Add padding around the text
+                                                    .background(Color.white.opacity(0.7)) // Semi-transparent background to improve readability
+                                                    .cornerRadius(5)
+                                                
                                                 Text(reading.content)
                                                     .font(.subheadline)
                                                     .lineLimit(2)
+                                                    .padding([.leading, .trailing, .bottom], 8) // Add padding around the text
+                                                    .background(Color.white.opacity(0.7)) // Semi-transparent background to improve readability
+                                                    .cornerRadius(5)
                                             }
                                             .frame(width: 150, height: 200) // Fixed size for horizontal scrolling
-                                            .padding()
-                                            .background(Color.blue)
+                                            .background(
+                                                Image("read\(readings.firstIndex(where: { $0.id == reading.id })! + 1)_background")
+                                                    .resizable()
+                                                    .scaledToFill()
+                                            )
                                             .cornerRadius(10)
+                                            .shadow(radius: 10) // Add shadow for better visual appearance
+                                            .clipped() // Clip the image to the frame
                                         }
                                         .buttonStyle(PlainButtonStyle()) // Use a plain button style for the navigation link
+                                        
                                     }
                                 }
                                 .padding()
                             }
+
                         }
                         .padding()
                     }
