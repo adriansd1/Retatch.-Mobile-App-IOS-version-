@@ -52,7 +52,7 @@ struct ContentView: View {
                     self.showMainMenu = false
                 }) {
                     VStack {
-                        Image("reading\(index + 1)_background")
+                        Image("reading\(index + 1)_background") //HERE I CHANGED IT
                             .resizable()
                             .scaledToFill()
                             .frame(width: 100, height: 100)
@@ -135,6 +135,7 @@ struct ContentView: View {
                                             .background(Color.black.opacity(0.5)) // Add a semi-transparent background to make the text readable
                                             .cornerRadius(10)
                                             .foregroundColor(.white)
+                                            .bold()
                                     )
                                     .padding(15)
                                     .clipped() // Clip the image to the frame
